@@ -1,0 +1,45 @@
+@page
+@model RazorPagesPayment.Pages_Payment.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Contestar</h1>
+
+<h4>Preguntas</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Payment.ID" />
+            <div class="form-group">
+                <label asp-for="Payment.Pago" class="control-label"></label>
+                <input readonly="readonly" asp-for="Payment.Pago" class="form-control" />
+                <span asp-validation-for="Payment.Pago" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Payment.Price" class="control-label"></label>
+                <input readonly="readonly" asp-for="Payment.Price" class="form-control" />
+                <span asp-validation-for="Payment.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Payment.Genre" class="control-label"></label>
+                <input asp-for="Payment.Genre" class="form-control" />
+                <span asp-validation-for="Payment.Genre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Devuelta a la Lista</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
